@@ -1,0 +1,17 @@
+<server description="new server">
+
+	<featureManager>
+		<feature>localConnector-1.0</feature>
+		<feature>jaxrs-2.0</feature>
+		<feature>jpa-2.1</feature>
+		<feature>cdi-1.2</feature>
+		<feature>beanValidation-1.1</feature>
+		<feature>jdbc-4.1</feature>
+		<feature>managedBeans-1.0</feature>
+		<feature>servlet-3.1</feature>
+		<feature>jndi-1.0</feature>
+		<feature>ejbLite-3.2</feature>
+	</featureManager>
+
+
+</server>

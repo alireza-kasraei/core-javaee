@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.devk</groupId>
+	<artifactId>core-parent</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<!-- library versions -->
+		<liberty.version>8.5.5.8</liberty.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<guava.version>20.0</guava.version>
+		<!-- java version -->
+		<java.version>1.7</java.version>
+		<javaee.version>7.0</javaee.version>
+		<lombok.version>1.16.14</lombok.version>
+		<core-base.version>0.1.0-SNAPSHOT</core-base.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>core-util</module>
+		<module>core-persistence-parent</module>
+		<module>core-commons</module>
+		<module>core-web</module>
+		<module>core-services</module>
+	</modules>
+
+	<dependencies>
+
+		<!-- javaee provided dependencies , maybe we have to change it with standard 
+			javaee api -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>${javaee.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- logger -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-commons</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-persistence-model</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-persistence</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-services</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-util</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.devk</groupId>
+				<artifactId>core-web</artifactId>
+				<version>${core-base.version}</version>
+			</dependency>
+			<dependency>
+			<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<fork>true</fork>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	
+	<!-- <distributionManagement>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>http://192.168.54.68:9091/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement> -->
+</project>
